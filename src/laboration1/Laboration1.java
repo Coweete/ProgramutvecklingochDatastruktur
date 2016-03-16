@@ -87,6 +87,19 @@ public class Laboration1 {
         else
             return digits(str.substring(1));
     }
+    public int digits(int nbr){
+        if(nbr == 0){
+            return 0;
+        }else{
+            return 1 + digits(nbr / 10);
+        }
+    }
+    public long fib(int n){
+        if(n == 1 || n == 2)
+            return 0;
+        else
+            return fib(n-1) + fib(n-2);
+    }
     public static void main (String [] args){
         Laboration1 la = new Laboration1();
         la.print(10,15);
@@ -131,6 +144,16 @@ public class Laboration1 {
         la.printString("Student",3,-5);
         System.out.println("");
         la.printString("Du",0,2);
+        System.out.println("");
+        System.out.print(la.digits("Student"));
+        System.out.print(la.digits("RDS 435"));
+        System.out.print(la.digits("Pw TT54W41"));
 
+        long starttid = System.currentTimeMillis();
+        for (int i = 0; i < 1000; i++) {
+            la.fib(30);
+        }
+        long stopptid = System.currentTimeMillis();
+        System.out.println(stopptid - starttid);
     }
 }

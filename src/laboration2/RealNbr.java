@@ -19,6 +19,8 @@ public class RealNbr implements Comparable<RealNbr> {
         }
         return res;
     }
+
+
     
     public int compareTo( RealNbr nbr ) {
         double difference = this.value - nbr.value;

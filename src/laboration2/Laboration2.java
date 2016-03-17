@@ -1,4 +1,7 @@
 package laboration2;
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.util.*;
 
 public class Laboration2 {
@@ -56,17 +59,59 @@ public class Laboration2 {
     }
     public void upp3(){
         int[] array = randomIntArray(10000);
+        LinearSearch ls = new LinearSearch();
         long start = System.currentTimeMillis();
         for (int i = 0; i < 9999; i++) {
-            
+            ls.indexOf(array,i);
         }
+        long stop = System.currentTimeMillis();
+        System.out.println(stop - start);
     }
-    
+    public RealNbr[] getRealNbrArray(int n){
+        RealNbr[] array = new RealNbr[n];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = new RealNbr(i);
+        }
+        Exercise4.shuffle(array);
+        return array;
+    }
+    public int indexOf(RealNbr[] array, RealNbr value){
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(value)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    public int indexOf(Object[] array, Object obj){
+        for (int i = 0; i < array.length; i++) {
+            if(array[i].equals(obj)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void test8(){
+        Laboration2 lab = new Laboration2();
+        ArrayList<Integer> list = fillInteger(100000,1000,50000);
+        ArrayList<RealNbr> array = new ArrayList<RealNbr>();
+        for (Integer i: list) {
+            array.add(new RealNbr(i.intValue()));
+        }
+        BinarySearch bs = new BinarySearch();
+
+    }
+
     public static void main(String[] args) {
         Laboration2 l2 = new Laboration2();
         ArrayList<String> res = l2.permute("OLA");
+        /*
         for( String s : res )
             System.out.println(s);
+        */
+        //l2.upp3();
+        
     }
 }
 

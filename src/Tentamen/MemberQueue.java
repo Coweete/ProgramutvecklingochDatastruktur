@@ -29,11 +29,15 @@ public class MemberQueue {
     }
 
     public void moveToEnd(Filter<Member> filter){
-        for(Member m : queue){
-            if (filter.accept(m)){
-                queue.remove(m);
-                queue.addLast(m);
+        int counter = queue.size();
+        int pos = 0;
+        while (counter > 0){
+            if(filter.accept(queue.get(pos))){
+                enqueue(queue.remove(pos));
+            }else{
+                pos++;
             }
+            counter--;
         }
     }
 

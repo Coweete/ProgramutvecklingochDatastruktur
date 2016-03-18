@@ -11,6 +11,6 @@ public class LessThan implements Filter<Member> {
     }
     @Override
     public boolean accept(Member obj) {
-        return obj.getId() < limit;
+        return obj.getId() > limit;
     }
 }

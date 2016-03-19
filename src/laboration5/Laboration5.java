@@ -3,11 +3,20 @@ import java.util.*;
 
 public class Laboration5 {
     public void reverse(Double[] array) {
-        // komplettera med kod
+        DoubleStack stack = new DoubleStack(array.length);
+        for( Double d : array){
+            stack.push(d);
+        }
+        int index = 0;
+        while (!stack.isEmpty()){
+            array[index] = stack.pop();
+            index++;
+        }
     }
     
     public void descending(Double[] array) {
-        // komplettera med kod
+        Arrays.sort(array);
+        reverse(array);
     }
     
     public void uppgift5() {
@@ -30,7 +39,7 @@ public class Laboration5 {
     
     public static void main(String[] args) {
         Laboration5 lab6 = new Laboration5();
-        lab6.uppgift5();
-//        lab6.uppgift6();
+//        lab6.uppgift5();
+        lab6.uppgift6();
     }
 }
